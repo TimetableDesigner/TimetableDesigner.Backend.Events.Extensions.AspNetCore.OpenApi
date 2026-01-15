@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - "main"
-    #paths:
-     # - "TimetableDesigner.Backend.Events.Extensions.AspNetCore.OpenApi**"
+    paths:
+      - "TimetableDesigner.Backend.Events.Extensions.AspNetCore.OpenApi**"
 
 jobs:
   build:

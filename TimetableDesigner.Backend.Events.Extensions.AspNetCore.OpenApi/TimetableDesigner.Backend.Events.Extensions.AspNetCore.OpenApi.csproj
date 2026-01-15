@@ -4,7 +4,6 @@
         <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Version />
         <Title>TimetableDesigner.Backend.Events.Extensions.AspNetCore.OpenApi</Title>
         <Authors>Mateusz Skoczek</Authors>
         <PackageProjectUrl>https://github.com/TimetableDesigner/TimetableDesigner.Backend.Events.Extensions.AspNetCore.OpenApi</PackageProjectUrl>
@@ -16,5 +15,11 @@
       <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
       <PackageReference Include="timetabledesigner.backend.events" Version="1.1.1" />
     </ItemGroup>
-
+    
+    <ItemGroup>
+      <None Update="icon.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
+    </ItemGroup>
 </Project>
