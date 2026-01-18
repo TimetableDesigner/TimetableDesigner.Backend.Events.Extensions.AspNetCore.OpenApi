@@ -4,11 +4,22 @@ namespace TimetableDesigner.Backend.Events.Extensions.AspNetCore.OpenApi;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddEventQueue<T>(this IServiceCollection services, Action<T> configuration) where T : EventQueue, new()
+    public static IServiceCollection AddEventQueue<TQueue, TBuilder>(this IServiceCollection services, Action<TBuilder> configuration) 
+        where TQueue : EventQueue<TQueue>, new()
+        where TBuilder : EventQueueBuilder<TQueue>, new()
     {
-        T builder = new T();
+        TBuilder builder = new TBuilder();
         configuration(builder);
-        builder.Setup(services);
+        TQueue queue = new TQueue();
+        queue.Setup(services, builder);
+        return services;
+    }
+
+    public static IServiceCollection AddEventQueue<TQueue>(this IServiceCollection services, string connectionString)
+        where TQueue : EventQueue<TQueue>, new()
+    {
+        TQueue queue = new TQueue();
+        queue.Setup(services, connectionString);
         return services;
     }
 }
